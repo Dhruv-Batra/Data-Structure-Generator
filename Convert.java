@@ -1,5 +1,10 @@
 public class Convert
 {  
+   public static void main(String[] args) 
+	{
+      System.out.print(convert("Computer Science is very cool"," ","array","String","data","uppercase","lowercase"));
+   }
+
    public static String convert(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
    {
       String[] text = str.split(delim);
