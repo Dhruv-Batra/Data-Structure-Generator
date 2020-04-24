@@ -14,36 +14,22 @@ public class Generate
    {
       String[] text = str.split(delim);
       //create worksheet and answer key
-      int fileNumber1=1;
-      boolean questionExists=true;
-      while(questionExists)
-      {
-         String filename1 = String.format(datType+"WORKSHEETversion%03d.txt", fileNumber1);
-         fileNumber1++;
-         File question1 = new File(filename1);
-         questionExists = question1.exists();
-         //PrintWriter question = new PrintWriter(filename1);
-      }
       int fileNumber2=1;
-      boolean answerExists=true;
-      
+      boolean answerExists=true;  
       while(answerExists)
       {
          String filename2 = String.format(datType+"ANSWERSversion%03d.txt", fileNumber2);
          fileNumber2++;
          File answers1 = new File(filename2);
          answerExists = answers1.exists();
-         //PrintWriter answer = new PrintWriter(filename2);
          
-      }
-      PrintWriter question = new PrintWriter(String.format(datType+"QUESTIONSversion%03d.txt", fileNumber1-1));
-      PrintWriter answer = new PrintWriter(String.format(datType+"ANSWERSversion%03d.txt", fileNumber2-1));
-      question.close();
-      answer.close();   
-      
+      }      
+      PrintWriter question = new PrintWriter(String.format(datType+"QuestionsVersion%03d.txt", fileNumber2-1));
+      PrintWriter answer = new PrintWriter(String.format(datType+"AnswersVersion%03d.txt", fileNumber2-1)); 
+
       switch(datType.toLowerCase())
       {
-         case "array": output = genArray(name,text, varType,question,answer); break;
+         case "array": genArray(name,text, varType,question,answer); break;
          //case "arraylist": output = genArrayList(name,text, varType,question,answer); break;
          //case "linkedlist": output = genLinkedList(name,text, varType,question,answer); break;
          //case "stack": output = genStack(name,text, varType,question,answer); break;
@@ -53,8 +39,23 @@ public class Generate
       }
    }
    
-   private static void genArray(String name, String text, String varType, String question, String answer)
+   private static void genArray(String name, String[] text, String varType, PrintWriter question, PrintWriter answer)
    {
-   
+      int num1=-1;
+      int num2=-1;
+      while(num1==num2)
+      {
+         num1=(int)(Math.random() * text.length); 
+         num2=(int)(Math.random() * text.length);
+      }
+
+      question.println("//Array Lab - DATA STRUCTURE GENERATOR\n");
+      question.println("/*Objectives:");
+      question.println("\t1. Create an array with the following values: "+Arrays.toString(text));
+      question.println("\t2. Switch element "+num1+" and element "+num2);
+      question.println("\t3. Print the array\n/*\n");
+      question.println("import java.util.*;\npublic class arrayLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
+      question.close();
+      answer.close();
    }
 }
