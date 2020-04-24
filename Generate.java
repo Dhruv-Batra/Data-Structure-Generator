@@ -26,6 +26,7 @@ public class Generate
       }
       int fileNumber2=1;
       boolean answerExists=true;
+      
       while(answerExists)
       {
          String filename2 = String.format(datType+"ANSWERSversion%03d.txt", fileNumber2);
@@ -42,13 +43,14 @@ public class Generate
       
       switch(datType.toLowerCase())
       {
-         //case "array": output = convertArray(name,text, varType,question,answer); break;
-         //case "arraylist": output = convertArrayList(name,text, varType,question,answer); break;
-         //case "linkedlist": output = convertLinkedList(name,text, varType,question,answer); break;
-         //case "stack": output = convertStack(name,text, varType,question,answer); break;
-         //case "queue": output = convertQueue(name,text, varType,question,answer); break;
-         //case "hashset": output = convertHashSet(name,text, varType,question,answer); break;
-         //case "treeset": output = convertTreeSet(name,text, varType,question,answer); break;
+         case "array": output = genArray(name,text, varType,question,answer); break;
+         case "arraylist": output = genArrayList(name,text, varType,question,answer); break;
+         case "linkedlist": output = genLinkedList(name,text, varType,question,answer); break;
+         case "stack": output = genStack(name,text, varType,question,answer); break;
+         case "queue": output = genQueue(name,text, varType,question,answer); break;
+         case "hashset": output = genHashSet(name,text, varType,question,answer); break;
+         case "treeset": output = genTreeSet(name,text, varType,question,answer); break;
       }
    }
+   private convertArray
 }
