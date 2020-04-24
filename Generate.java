@@ -44,13 +44,17 @@ public class Generate
       switch(datType.toLowerCase())
       {
          case "array": output = genArray(name,text, varType,question,answer); break;
-         case "arraylist": output = genArrayList(name,text, varType,question,answer); break;
-         case "linkedlist": output = genLinkedList(name,text, varType,question,answer); break;
-         case "stack": output = genStack(name,text, varType,question,answer); break;
-         case "queue": output = genQueue(name,text, varType,question,answer); break;
-         case "hashset": output = genHashSet(name,text, varType,question,answer); break;
-         case "treeset": output = genTreeSet(name,text, varType,question,answer); break;
+         //case "arraylist": output = genArrayList(name,text, varType,question,answer); break;
+         //case "linkedlist": output = genLinkedList(name,text, varType,question,answer); break;
+         //case "stack": output = genStack(name,text, varType,question,answer); break;
+         //case "queue": output = genQueue(name,text, varType,question,answer); break;
+         //case "hashset": output = genHashSet(name,text, varType,question,answer); break;
+         //case "treeset": output = genTreeSet(name,text, varType,question,answer); break;
       }
    }
-   private convertArray
+   
+   private static void genArray(String name, String text, String varType, String question, String answer)
+   {
+   
+   }
 }

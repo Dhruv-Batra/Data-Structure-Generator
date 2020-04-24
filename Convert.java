@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Convert
 {  
    public static String convert(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
@@ -19,6 +17,7 @@ public class Convert
          case "default": break;
          case "uppercase": text=upperRest(text); break;
          case "lowercase": text=lowerRest(text); break;
+         case "random": text=randomRest(text); break;
       }
       
       switch(datType.toLowerCase())
@@ -54,7 +53,7 @@ public class Convert
          if(varType.equalsIgnoreCase("Character"))
          {
             //Character[] data = {'c', 'o', 'o', 'l'};
-            output+="'"+text[i]+"', ";
+            output+="'"+text[i].charAt(0)+"', ";
          }
       }
       output=output.substring(0, output.length()-2);
@@ -251,5 +250,23 @@ public class Convert
          text[i]=text[i].charAt(0)+text[i].substring(1).toLowerCase();
       }
       return text;
+   }
+   private static String[] randomRest (String[] text)
+   {
+	   for(int i=0; i<text.length; i++)
+	   {
+		   String s = "";
+		   for(int j = 1; j < text[i].length(); j++)
+		   {
+			   int n = (int)(Math.random() * 2);
+			   switch(n)
+			   {
+			   case 0: s += text[i].substring(j, j + 1).toUpperCase(); break;
+			   case 1: s += text[i].substring(j, j + 1).toLowerCase(); break;
+			   }
+		   }
+		   text[i] = text[i].charAt(0) + s;
+	   }
+	   return text;
    }
 }
