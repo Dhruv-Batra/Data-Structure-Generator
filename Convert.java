@@ -1,10 +1,5 @@
 public class Convert
 {  
-   public static void main(String[] args) 
-	{
-      System.out.print(convert("Computer Science is very cool"," ","treeset","String","data","default","default"));
-   }
-
    public static String convert(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
    {
       String[] text = str.split(delim);

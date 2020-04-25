@@ -3,17 +3,11 @@ import java.io.*;
 
 
 public class Generate
-{ 
-   //in main method make sure to throws FileNotFoundException
-   public static void main(String[] args) throws FileNotFoundException
-	{
-      generate("Computer Science is very cool"," ","treeset","String","data","default","default");
-   }
-   
-   public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest) throws FileNotFoundException
+{  
+   public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
    {
       String[] text = str.split(delim);
-      //create worksheet and answer key
+      //create worksheet
       int fileNumber2=1;
       boolean answerExists=true;  
       while(answerExists)
