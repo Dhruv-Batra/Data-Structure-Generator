@@ -7,7 +7,7 @@ public class ArrayLab
 {
    public static void main(String[] args)
    {
-      //Create Array with given elements
+      ////Create a String Array with the following values: [Computer, Science, is, very, cool]
       String[] data = {"Computer", "Science", "Is", "Very", "Cool"};
       
       //Switch element two and three

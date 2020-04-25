@@ -20,11 +20,11 @@ public class Generate
       {
          String filename2 = String.format(datType+"QuestionsVersion%03d.txt", fileNumber2);
          fileNumber2++;
-         File answers1 = new File(filename2);
+         File answers1 = new File("Generated Labs/"+filename2);
          answerExists = answers1.exists();
          
       }      
-      PrintWriter question = new PrintWriter(String.format(datType+"QuestionsVersion%03d.txt", fileNumber2-1));
+      PrintWriter question = new PrintWriter("Generated Labs/"+String.format(datType+"QuestionsVersion%03d.txt", fileNumber2-1));
 
       switch(datType.toLowerCase())
       {
@@ -93,7 +93,7 @@ public class Generate
       question.println("\t5. Switch element "+num1+" and element "+num2);
       question.println("\t6. Replace the value of element "+num3+" with ["+text[num4]+"]");
       question.println("\t7. Print the index of the first occurence of ["+text[num9]+"]");
-      question.println("\t8. Print the index of the last occurence of ["+text[num10]+"]");
+      question.println("\t8. Print the index of the last occurence of ["+text[num4]+"]");
       question.println("\t9. Remove element "+num6);
       question.println("\t10. Print each element of the ArrayList on a new line\n*/\n");
       question.println("import java.util.*;\npublic class arrayLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");

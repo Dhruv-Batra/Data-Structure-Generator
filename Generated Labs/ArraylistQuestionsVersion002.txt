@@ -1,0 +1,24 @@
+//Array Lab Questions - DATA STRUCTURE GENERATOR
+
+/*Objectives:
+	1. Create a String ArrayList with the following values: [Computer, Science, is, very, cool]
+	2. Add [cool] to the end of the ArrayList
+	3. Add [Science] to the ArrayList at index 2
+	4. Print the size of the ArrayList
+	5. Switch element 4 and element 0
+	6. Replace the value of element 0 with [Science]
+	7. Print the index of the first occurence of [very]
+	8. Print the index of the last occurence of [Computer]
+	9. Remove element 2
+	10. Print each element of the ArrayList on a new line
+*/
+
+import java.util.*;
+public class arrayLab
+{
+	public static void main(String[] args)
+	{
+		//Code Here
+
+	}
+}
