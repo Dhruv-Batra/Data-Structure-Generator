@@ -8,7 +8,7 @@ public class QueueLab
    public static void main(String[] args)
    {
       //Create a String Queue with the following values: [Computer, Science, is, very, cool]
-      Queue<String> data = new LinkedList<String>();
+      Set<String> data = new HashSet<String>();
       data.add("Computer");
       data.add("Science");
       data.add("is");

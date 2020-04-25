@@ -7,7 +7,7 @@ public class Generate
    //in main method make sure to throws FileNotFoundException
    public static void main(String[] args) throws FileNotFoundException
 	{
-      generate("Computer Science is very cool"," ","queue","String","data","default","default");
+      generate("Computer Science is very cool"," ","treeset","String","data","default","default");
    }
    
    public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest) throws FileNotFoundException
@@ -33,8 +33,8 @@ public class Generate
          case "linkedlist": genLinkedList(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          case "stack": genStack(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          case "queue": genQueue(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
-         //case "hashset": genHashSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
-         //case "treeset": genTreeSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
+         case "hashset": genHashSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
+         case "treeset": genTreeSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
       }
    }
    
@@ -183,6 +183,43 @@ public class Generate
       question.println("//https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html");
       question.println("\nimport java.util.*;\npublic class QueueLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
       question.close();
-
+   }
+   
+   private static void genHashSet(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
+   {
+      String[] text = str.split(delim);
+      int num1=(int)(Math.random() * text.length);
+      int num2=(int)(Math.random() * text.length);
+      
+      question.println("//HashSet Lab Questions - DATA STRUCTURE GENERATOR\n");
+      question.println("/*Objectives:");
+      question.println("\t1. Create a "+varType+ " HashSet with the following values: "+Arrays.toString(text));
+      question.println("\t2. Print a boolean confirming whether ["+text[num1]+"] exists"); 
+      question.println("\t3. Print the size of the HashSet");
+      question.println("\t4. Print each element of the HashSet on a new line");
+      question.println("\t5. Print a boolean answering whether the HashSet is empty\n*/\n");
+      question.println("//For help completing the lab refer to:");
+      question.println("//https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html");
+      question.println("\nimport java.util.*;\npublic class HashSetLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
+      question.close();
+   }
+   
+   private static void genTreeSet(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
+   {
+      String[] text = str.split(delim);
+      int num1=(int)(Math.random() * text.length);
+      int num2=(int)(Math.random() * text.length);
+      
+      question.println("//TreeSet Lab Questions - DATA STRUCTURE GENERATOR\n");
+      question.println("/*Objectives:");
+      question.println("\t1. Create a "+varType+ " TreeSet with the following values: "+Arrays.toString(text));
+      question.println("\t2. Print a boolean confirming whether ["+text[num1]+"] exists"); 
+      question.println("\t3. Print the size of the TreeSet");
+      question.println("\t4. Print each element of the TreeSet on a new line");
+      question.println("\t5. Print a boolean answering whether the TreeSet is empty\n*/\n");
+      question.println("//For help completing the lab refer to:");
+      question.println("//https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html");
+      question.println("\nimport java.util.*;\npublic class TreeSetLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
+      question.close();
    }
 }
