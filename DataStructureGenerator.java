@@ -22,7 +22,7 @@ public class DataStructureGenerator
 		leftPanel.setBounds(0, 0, 300, 678);
 		leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel logo = new JLabel(new ImageIcon("/*file name of the image (assuming it's in the same folder, otherwise try the file path)*/"));
+		JLabel logo = new JLabel(new ImageIcon("logo.PNG"));
 		logo.setBounds(50, 50, 200, 200);
 		logo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		leftPanel.add(logo);
@@ -126,7 +126,7 @@ public class DataStructureGenerator
 		midPanel.add(output);
 		
 		JButton generate = new JButton("Generate");
-		generate.setBounds(200, 450, 200, 50);
+		generate.setBounds(176, 450, 200, 50);
 		generate.addActionListener(new ActionListener()
 		{
 			@Override
