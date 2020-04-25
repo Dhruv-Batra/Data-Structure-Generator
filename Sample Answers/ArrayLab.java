@@ -7,6 +7,7 @@ public class ArrayLab
 {
    public static void main(String[] args)
    {
+      //Create Array with given elements
       String[] data = {"Computer", "Science", "Is", "Very", "Cool"};
       
       //Switch element two and three
@@ -25,6 +26,8 @@ public class ArrayLab
       {
          System.out.println(x);
       }
+      
+      //Print length of array
+      System.out.println(data.length);
    }
 }
-//DATA STRUCTURE GENERATOR by Dhruv Batra and Nathan Goldberg

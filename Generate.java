@@ -7,13 +7,12 @@ public class Generate
    //in main method make sure to throws FileNotFoundException
    public static void main(String[] args) throws FileNotFoundException
 	{
-      generate("I like pizza"," ","Array","String","data","default","default");
+      generate("Computer Science is very cool"," ","Arraylist","String","data","default","default");
    }
    
    public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest) throws FileNotFoundException
    {
       String[] text = str.split(delim);
-      Scanner infile = new Scanner (new File("Answers"));
       //create worksheet and answer key
       int fileNumber2=1;
       boolean answerExists=true;  
@@ -29,8 +28,8 @@ public class Generate
 
       switch(datType.toLowerCase())
       {
-         case "array": genArray(str,delim,datType, varType,name,caseFirst,caseRest,question,infile); break;
-         //case "arraylist": output = genArrayList(name,text, varType,question,answer); break;
+         case "array": genArray(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
+         case "arraylist": genArrayList(str,delim,datType, varType,name,caseFirst,caseRest,question);; break;
          //case "linkedlist": output = genLinkedList(name,text, varType,question,answer); break;
          //case "stack": output = genStack(name,text, varType,question,answer); break;
          //case "queue": output = genQueue(name,text, varType,question,answer); break;
@@ -39,7 +38,7 @@ public class Generate
       }
    }
    
-   private static void genArray(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question, Scanner infile)
+   private static void genArray(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
    {
       String[] text = str.split(delim);
       int num1=-1;
@@ -52,13 +51,52 @@ public class Generate
 
       question.println("//Array Lab Questions - DATA STRUCTURE GENERATOR\n");
       question.println("/*Objectives:");
-      question.println("\t1. Create an array with the following values: "+Arrays.toString(text));
+      question.println("\t1. Create a "+varType+" array with the following values: "+Arrays.toString(text));
       question.println("\t2. Switch element "+num1+" and element "+num2);
-      question.println("\t3. Print each element of the array on a new line\n/*\n");
+      question.println("\t3. Print each element of the array on a new line\n");
+      question.println("\t4. Print length of array\n*/\n");
       question.println("import java.util.*;\npublic class arrayLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
       question.close();
+   }
+   private static void genArrayList(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
+   {
+      String[] text = str.split(delim);
+      int num5=(int)(Math.random() * text.length);
+      int num7=(int)(Math.random() * text.length);
+      int num8=(int)(Math.random() * text.length);
+   
+      question.println("//Array Lab Questions - DATA STRUCTURE GENERATOR\n");
+      question.println("/*Objectives:");
+      question.println("\t1. Create a "+varType+ " ArrayList with the following values: "+Arrays.toString(text));
+      question.println("\t2. Add ["+text[num5]+"] to the end of the ArrayList");
+      question.println("\t3. Add ["+text[num7]+"] to the ArrayList at index "+num8);
       
-      //while(infile.next()
-      //answer.close();
+      int num1=-1;
+      int num2=-1;
+      while(num1==num2)
+      {
+         num1=(int)(Math.random() * text.length); 
+         num2=(int)(Math.random() * text.length);
+      }
+      int num3=-1;
+      int num4=-1;
+      while(num3==num4)
+      {
+         num3=(int)(Math.random() * text.length); 
+         num4=(int)(Math.random() * text.length);
+      }
+      int num6=(int)(Math.random() * text.length);
+      int num9=(int)(Math.random() * text.length);
+      int num10=(int)(Math.random() * text.length);
+
+      question.println("\t4. Print the size of the ArrayList");
+      question.println("\t5. Switch element "+num1+" and element "+num2);
+      question.println("\t6. Replace the value of element "+num3+" with ["+text[num4]+"]");
+      question.println("\t7. Print the index of the first occurence of ["+text[num9]+"]");
+      question.println("\t8. Print the index of the last occurence of ["+text[num10]+"]");
+      question.println("\t9. Remove element "+num6);
+      question.println("\t10. Print each element of the ArrayList on a new line\n*/\n");
+      question.println("import java.util.*;\npublic class arrayLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
+      question.close();
    }
 }
