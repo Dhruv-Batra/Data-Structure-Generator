@@ -22,7 +22,7 @@ public class DataStructureGenerator
 		leftPanel.setBounds(0, 0, 300, 678);
 		leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel logo = new JLabel(new ImageIcon("logo.PNG"));
+		JLabel logo = new JLabel(new ImageIcon("logo.GIF"));
 		logo.setBounds(50, 50, 200, 200);
 		logo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		leftPanel.add(logo);
