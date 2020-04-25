@@ -7,7 +7,7 @@ public class Generate
    //in main method make sure to throws FileNotFoundException
    public static void main(String[] args) throws FileNotFoundException
 	{
-      generate("Computer Science is very cool"," ","stack","String","data","default","default");
+      generate("Computer Science is very cool"," ","queue","String","data","default","default");
    }
    
    public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest) throws FileNotFoundException
@@ -32,7 +32,7 @@ public class Generate
          case "arraylist": genArrayList(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          case "linkedlist": genLinkedList(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          case "stack": genStack(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
-         //case "queue": genQueue(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
+         case "queue": genQueue(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          //case "hashset": genHashSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          //case "treeset": genTreeSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
       }
@@ -160,14 +160,29 @@ public class Generate
       question.println("//Stack Lab Questions - DATA STRUCTURE GENERATOR\n");
       question.println("/*Objectives:");
       question.println("\t1. Create a "+varType+ " Stack with the following values: "+Arrays.toString(text));
-      question.println("\t2. Print the item on top of the stack without removing it");
-      question.println("\t3. Print the distance from the top of the stack from ["+text[num1]+"]");
-      question.println("\t4. Print each element of the LinkedList on a new line");
-      question.println("\t5. Print a boolean confirming the stack is empty.\n*/\n");
+      question.println("\t2. Print the item on top of the Stack without removing it");
+      question.println("\t3. Print the distance from the top of the Stack from ["+text[num1]+"]");
+      question.println("\t4. Print each element of the Stack on a new line");
+      question.println("\t5. Print a boolean confirming the Stack is empty.\n*/\n");
       question.println("//For help completing the lab refer to:");
       question.println("//https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html");
       question.println("\nimport java.util.*;\npublic class StackLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
       question.close();
+   }
+   
+   private static void genQueue(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
+   {
+      String[] text = str.split(delim);
       
+      question.println("//Queue Lab Questions - DATA STRUCTURE GENERATOR\n");
+      question.println("/*Objectives:");
+      question.println("\t1. Create a "+varType+ " Queue with the following values: "+Arrays.toString(text));
+      question.println("\t2. Print the item on top of the stack without removing it");
+      question.println("\t3. Print each element of the Queue on a new line\n*/\n");
+      question.println("//For help completing the lab refer to:");
+      question.println("//https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html");
+      question.println("\nimport java.util.*;\npublic class QueueLab\n{\n\tpublic static void main(String[] args)\n\t{\n\t\t//Code Here\n\n\t}\n}");
+      question.close();
+
    }
 }
