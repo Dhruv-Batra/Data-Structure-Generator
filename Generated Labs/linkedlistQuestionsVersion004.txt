@@ -1,0 +1,27 @@
+//LinkedList Lab Questions - DATA STRUCTURE GENERATOR
+
+/*Objectives:
+	1. Create a String LinkedList with the following values: [Computer, Science, is, very, cool]
+	2. Add [Computer] to the end of the LinkedList
+	3. Add [is] to the beginning of the LinkedList
+	4. Add [cool] to the LinkedList at index 1
+	5. Print the size of the LinkedList
+	6. Switch element 2 and element 4
+	7. Replace the value of element 3 with [Science]
+	8. Print the index of the first occurence of [very]
+	9. Print the index of the last occurence of [Science]
+	10. Remove element 4
+	11. Remove and print the first item in the LinkedList
+	12. Remove and print the last item in the LinkedList
+	13. Print each element of the ArrayList on a new line
+*/
+
+import java.util.*;
+public class arrayLab
+{
+	public static void main(String[] args)
+	{
+		//Code Here
+
+	}
+}
