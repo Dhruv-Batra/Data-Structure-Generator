@@ -1,25 +1,31 @@
 import java.util.*;
 import java.io.*;
 
-
 public class Generate
 {  
-   public static void generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
+   public static String generate(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest)
    {
-      String[] text = str.split(delim);
       //create worksheet
       int fileNumber2=1;
+      File answers1 = null;
       boolean answerExists=true;  
       while(answerExists)
       {
          String filename2 = String.format(datType+"QuestionsVersion%03d.java", fileNumber2);
          fileNumber2++;
-         File answers1 = new File("Generated Labs/"+filename2);
+         answers1 = new File(filename2);
          answerExists = answers1.exists();
          
       }      
-      PrintWriter question = new PrintWriter("Generated Labs/"+String.format(datType+"QuestionsVersion%03d.java", fileNumber2-1));
-
+      PrintWriter question = null;
+	try
+	{
+		question = new PrintWriter(String.format(datType+"QuestionsVersion%03d.java", fileNumber2-1));
+	}
+	catch (FileNotFoundException e)
+	{
+		e.printStackTrace();
+	}
       switch(datType.toLowerCase())
       {
          case "array": genArray(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
@@ -30,6 +36,7 @@ public class Generate
          case "hashset": genHashSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
          case "treeset": genTreeSet(str,delim,datType, varType,name,caseFirst,caseRest,question); break;
       }
+      return answers1.getAbsolutePath();
    }
    
    private static void genArray(String str, String delim, String datType, String varType, String name, String caseFirst, String caseRest, PrintWriter question)
@@ -42,7 +49,7 @@ public class Generate
          num1=(int)(Math.random() * text.length); 
          num2=(int)(Math.random() * text.length);
       }
-
+      
       question.println("//Array Lab Questions - DATA STRUCTURE GENERATOR\n");
       question.println("/*Objectives:");
       question.println("\t1. Create a "+varType+" array with the following values: "+Arrays.toString(text));
@@ -84,7 +91,6 @@ public class Generate
       }
       int num6=(int)(Math.random() * text.length);
       int num9=(int)(Math.random() * text.length);
-      int num10=(int)(Math.random() * text.length);
 
       question.println("\t4. Print the size of the ArrayList");
       question.println("\t5. Switch element "+num1+" and element "+num2);
@@ -130,7 +136,6 @@ public class Generate
       }
       int num6=(int)(Math.random() * text.length);
       int num9=(int)(Math.random() * text.length);
-      int num10=(int)(Math.random() * text.length);
 
       question.println("\t5. Print the size of the LinkedList");
       question.println("\t6. Switch element "+num1+" and element "+num2);
@@ -183,7 +188,6 @@ public class Generate
    {
       String[] text = str.split(delim);
       int num1=(int)(Math.random() * text.length);
-      int num2=(int)(Math.random() * text.length);
       
       question.println("//HashSet Lab Questions - DATA STRUCTURE GENERATOR\n");
       question.println("/*Objectives:");
@@ -202,7 +206,6 @@ public class Generate
    {
       String[] text = str.split(delim);
       int num1=(int)(Math.random() * text.length);
-      int num2=(int)(Math.random() * text.length);
       
       question.println("//TreeSet Lab Questions - DATA STRUCTURE GENERATOR\n");
       question.println("/*Objectives:");

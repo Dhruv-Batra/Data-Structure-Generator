@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.swing.*;
 
 
@@ -22,7 +24,15 @@ public class DataStructureGenerator
 		leftPanel.setBounds(0, 0, 300, 678);
 		leftPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel logo = new JLabel(new ImageIcon("logo.GIF"));
+		JLabel logo = null;
+		try
+		{
+			logo = new JLabel(new ImageIcon(new URL("https://i.imgur.com/EcsHmx3.gif")));
+		}
+		catch(MalformedURLException e1)
+		{
+			
+		}
 		logo.setBounds(50, 50, 200, 200);
 		logo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		leftPanel.add(logo);
@@ -65,6 +75,7 @@ public class DataStructureGenerator
 				helpText.setBounds(0, 0, 500, 460);
 				helpText.setLineWrap(true);
 				helpText.setWrapStyleWord(true);
+				helpText.setEditable(false);
 				helpFrame.add(helpText);
 				helpFrame.setLayout(null);
 				helpFrame.setVisible(true);
@@ -92,7 +103,7 @@ public class DataStructureGenerator
 		JLabel structureLabel = new JLabel("Data structure:");
 		structureLabel.setBounds(50, 200, 100, 25);
 		midPanel.add(structureLabel);
-		JComboBox<String> structures = new JComboBox<String>(new String[] {"array", "ArrayList", "LinkedList", "Stack", "Queue", "HashSet", "TreeSet"});
+		JComboBox<String> structures = new JComboBox<String>(new String[] {"array", "ArrayList", "LinkedList", "Stack", "Queue", "HashSet", "TreeSet"});   
 		structures.setBounds(200, 200, 200, 25);
 		midPanel.add(structures);
 		
@@ -126,12 +137,17 @@ public class DataStructureGenerator
 		midPanel.add(output);
 		
 		JButton generate = new JButton("Generate");
-		generate.setBounds(176, 450, 200, 50);
+		generate.setBounds(200, 425, 200, 50);
 		generate.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				if(inputText.getText().equals("") || variable.getText().equals(""))
+				{
+					error(frame, "Error: must input items into the input box (separated by the delimiter) and a name for the variable");
+					return;
+				}
 				code = Convert.convert(inputText.getText(), delimiter.getText(), (String)structures.getSelectedItem(), (String)types.getSelectedItem(), variable.getText(), (String)firstLetter.getSelectedItem(), (String)otherLetters.getSelectedItem());
 				String[] lines = code.split("\n");
 				if(lines.length > 6)
@@ -166,6 +182,16 @@ public class DataStructureGenerator
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				if(output.getText().equals(""))
+				{
+					error(frame, "Error: must generate code before exporting as text file");
+					return;
+				}
+				if(inputText.getText().equals("") || variable.getText().equals(""))
+				{
+					error(frame, "Error: must input items into the input box (separated by the delimiter) and a name for the variable");
+					return;
+				}
 				int c = 0;
 				while(new File("generated-code-" + c + ".txt").exists())
 					c++;
@@ -198,25 +224,28 @@ public class DataStructureGenerator
 		rightPanel.setBounds(900, 0, 300, 678);
 		rightPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JButton worksheet = new JButton("Generate Worksheet");
+		JButton worksheet = new JButton("Generate Custom Lab");
 		worksheet.setBounds(50, 50, 200, 100);
 		worksheet.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				Generate.generate(output.getText(), delimiter.getText(), (String)structures.getSelectedItem(), 
-            (String)types.getSelectedItem(), variable.getText(), (String)firstLetter.getSelectedItem(), (String)otherLetters.getSelectedItem());  
+				if(inputText.getText().equals("") || variable.getText().equals(""))
+				{
+					error(frame, "Error: must input items into the input box (separated by the delimiter) and a name for the variable");
+					return;
+				}
+				String generateText = Generate.generate(inputText.getText(), delimiter.getText(), (String)structures.getSelectedItem(), 
+            (String)types.getSelectedItem(), variable.getText(), (String)firstLetter.getSelectedItem(), (String)otherLetters.getSelectedItem());
+				output.setText("File written succesfully:\n" + generateText);
 			}
 		});
 		rightPanel.add(worksheet);
 		
-		JLabel title = new JLabel("The Data Structure Generator");
-		title.setBounds(50, 175, 200, 25);
-		rightPanel.add(title);
-		JTextArea description = new JTextArea("/*enter description here (yes, all of it; it's gonna be a long line*/");
-		description.setBounds(50, 200, 200, 425);
-		description.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		JTextArea description = new JTextArea("Welcome to Data Structure Generator! This tool can be used to convert data into data structures for easy copy and paste to avoid the hassle of typing. Simply input text, select parameters, and press the Generate button. It can also be used to create custom Java labs based on the input data and parameters. Easily create multiple forms of randomized Java labs to prevent cheating and file sharing among students by pressing the Generate Custom Lab button.");
+		description.setBounds(50, 250, 200, 300);
+		description.setBackground(new Color(238, 238, 238));
 		description.setEditable(false);
 		description.setLineWrap(true);
 		description.setWrapStyleWord(true);
@@ -227,5 +256,20 @@ public class DataStructureGenerator
 		/******************************************************************/
 		frame.setLayout(null);
 		frame.setVisible(true);
+	}
+	private static void error(JFrame frame, String message)
+	{
+		JFrame error = new JFrame("error");
+		error.setSize(200, 100);
+		error.setLocationRelativeTo(frame);
+		error.setResizable(false);
+		JTextArea text = new JTextArea(message);
+		text.setBounds(0, 0, 200, 100);
+		text.setLineWrap(true);
+		text.setWrapStyleWord(true);
+		text.setEditable(false);
+		error.add(text);
+		error.setLayout(null);
+		error.setVisible(true);
 	}
 }
