@@ -28,6 +28,7 @@ public class DataStructureGenerator
 		try
 		{
 			logo = new JLabel(new ImageIcon(new URL("https://i.imgur.com/EcsHmx3.gif")));
+         //logo created by Christopher Soto
 		}
 		catch(MalformedURLException e1)
 		{
