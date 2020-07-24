@@ -6,3 +6,6 @@ to create custom Java labs based on the input data and parameters. Easily create
 to prevent cheating and file sharing among students by pressing the Generate Custom Lab button.
 
 Run application through the jar file. Sample answers to labs for each data structure are available in the "Sample Answers" folder. The "Application Resources" folder can be deleted if desired.
+
+For additional information/instructions visit:
+https://devpost.com/software/data-structure-generator
